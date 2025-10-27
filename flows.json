@@ -1,0 +1,325 @@
+[
+    {
+        "id": "fb8286627b0b1394",
+        "type": "tab",
+        "label": "Fluxo 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "733124fa1157ab5c",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "f653ab870a854ee3",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "682a68205c3d193f",
+        "type": "ui-page",
+        "name": "Page 1",
+        "ui": "733124fa1157ab5c",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "f653ab870a854ee3",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": 0,
+                "cols": 3
+            },
+            {
+                "name": "Tablet",
+                "px": 576,
+                "cols": 6
+            },
+            {
+                "name": "Small Desktop",
+                "px": 768,
+                "cols": 9
+            },
+            {
+                "name": "Desktop",
+                "px": 1024,
+                "cols": 12
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "633c684422a1e3f8",
+        "type": "ui-group",
+        "name": "Group 1",
+        "page": "682a68205c3d193f",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": true,
+        "disabled": false,
+        "groupType": "default"
+    },
+    {
+        "id": "d53111d4ad77f23c",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "test.mosquitto.org",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "28c1f0a35ca81c7c",
+        "type": "ui-gauge",
+        "z": "fb8286627b0b1394",
+        "name": "",
+        "group": "633c684422a1e3f8",
+        "order": 1,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "rounded",
+        "title": "temperatura",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "°C",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "10",
+                "color": "#5ddfd6",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "23",
+                "color": "#1aee17",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "40",
+                "color": "#de0202",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": "10",
+        "max": "40",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 670,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5d1d03dae9932c4f",
+        "type": "mqtt in",
+        "z": "fb8286627b0b1394",
+        "name": "",
+        "topic": "/senai/sensorData",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "d53111d4ad77f23c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 250,
+        "y": 260,
+        "wires": [
+            [
+                "d0b7aa321a0685f7",
+                "1c0f088dc65b8df0",
+                "68dcd71cce414e0e"
+            ]
+        ]
+    },
+    {
+        "id": "d0b7aa321a0685f7",
+        "type": "debug",
+        "z": "fb8286627b0b1394",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 460,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "1c0f088dc65b8df0",
+        "type": "function",
+        "z": "fb8286627b0b1394",
+        "name": "Temperatura",
+        "func": "msg.payload = msg.payload.temperatura\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 260,
+        "wires": [
+            [
+                "28c1f0a35ca81c7c"
+            ]
+        ]
+    },
+    {
+        "id": "68dcd71cce414e0e",
+        "type": "function",
+        "z": "fb8286627b0b1394",
+        "name": "Umidade",
+        "func": "msg.payload = msg.payload.umidade\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 340,
+        "wires": [
+            [
+                "69eaf70e81fc2163"
+            ]
+        ]
+    },
+    {
+        "id": "69eaf70e81fc2163",
+        "type": "ui-gauge",
+        "z": "fb8286627b0b1394",
+        "name": "",
+        "group": "633c684422a1e3f8",
+        "order": 0,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "rounded",
+        "title": "umidade",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "%",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "4",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "588",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "588",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 660,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "93140a241dbef1c9",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "@flowfuse/node-red-dashboard": "1.29.0"
+        }
+    }
+]
